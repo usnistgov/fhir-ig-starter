@@ -1,0 +1,45 @@
+// See https://containers.dev/implementors/json_reference/ for configuration reference
+{
+	"name": "Untitled Node.js project",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"remoteUser": "node",
+	"forwardPorts": [8080],
+	"postCreateCommand": "sh ./install.sh",
+	"postStartCommand": "sudo sh ./serve.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"MITRE-Health.vscode-language-fsh"
+			],
+			"settings": {
+				"editor.formatOnSave": true,
+				"editor.fontLigatures": true,
+				"editor.fontFamily": "Fira Code",
+				"editor.fontSize": 13,
+				"terminal.integrated.fontSize" : 14,
+				"terminal.integrated.fontFamily": "Fira Code"
+			}
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true,
+			"installOhMyZshConfig": true,
+			"upgradePackages": true,
+			"username": "devcontainer",
+			"userUid": "automatic",
+			"userGid": "automatic"
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "11"
+		},
+		"ghcr.io/devcontainers/features/ruby:1": {
+			"version": "latest"
+		},
+		"ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
+	}
+}
